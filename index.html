@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mentor Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            background-color: #121212;
+            line-height: 1.6;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: #f2f2f2;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        .navbar a:hover, .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .hero {
+            margin: 50px;
+            border-radius: 25px;
+            text-align: center;
+            padding: 150px 20px;
+            margin-top: 60px; /* Space for fixed navbar */
+            background-image: url('https://www.gifcen.com/wp-content/uploads/2023/06/hacker-gif-10.gif');
+            background-size:auto;
+            position: relative;
+            filter: brightness(0.8);
+        }
+        h1 {
+            font-size: 4em;
+            animation: fadeIn 1s ease-in-out;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        p {
+            font-size: 1.5em;
+            animation: fadeIn 1.5s ease-in-out;
+            margin-bottom: 40px;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .button:hover {
+            transform: scale(1.05);
+            background-color: #03a05a;
+        }
+        section {
+            margin: 50px;
+            padding: 80px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .about, .courses, .testimonials {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .course {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            flex-basis: calc(25% - 20px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .course:hover {
+            transform: scale(1.05);
+        }
+        .course img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .testimonial-container::-webkit-scrollbar {
+            display: none;
+        }
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 20px;
+            margin-right: 20px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .testimonial img {
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(18, 18, 18, 0.9);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            p { font-size: 1em; }
+            .button { width: calc(100% - 40px); }
+            .course { flex-basis: calc(45% - 20px); }
+            .testimonial { width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#courses">Our Courses</a>
+        <a href="#testimonials">Testimonials</a>
+    </div>
+
+    <div class="hero" id="home">
+        <h1>Welcome to Your AI Mentor</h1>
+        <p>Your journey to knowledge starts here!</p>
+        <button class="button" id="showCoursesBtn">Explore Courses</button>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2><i class="fas fa-info-circle section-icon"></i> About Us</h2>
+        <p>We provide top-notch AI mentoring, guiding you through your learning journey with cutting-edge technology.</p>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <h2><i class="fas fa-book-open section-icon"></i> Our Courses</h2>
+        <div class="courses">
+            <div class="course">
+                <img src="https://th.bing.com/th/id/OIP.2eiINw4zaHVwKNhBSiUhOwHaEc?rs=1&pid=ImgDetMain" alt="Course 1">
+                <p>Course 1 - Introduction to AI</p>
+            </div>
+            <div class="course">
+                <img src="https://thumbs.dreamstime.com/b/multitasking-robot-professional-ai-office-employee-working-multitasking-robot-professional-ai-office-employee-working-isolated-265060615.jpg" alt="Course 2">
+                <p>Course 2 - Machine Learning Basics</p>
+            </div>
+            <div class="course">
+                <img src="https://thumbs.dreamstime.com/b/multitasking-robot-professional-ai-office-employee-working-multitasking-robot-professional-ai-office-employee-working-isolated-265060615.jpg" alt="Course 3">
+                <p>Course 3 - Advanced AI Techniques</p>
+            </div>
+            <div class="course">
+                <img src="https://miro.medium.com/v2/resize:fit:1132/1*IXd8wbObTNOiyjrXx8ey7w.jpeg" alt="Course 4">
+                <p>Course 4 - AI in Real Life</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2><i class="fas fa-comments section-icon"></i> What Our Students Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="https://cdn.dribbble.com/users/1632728/screenshots/4693038/profilepic_dribbble_still_2x.gif?compress=1&resize=800x600" alt="Student 1">
+                "The AI mentor helped me understand complex topics easily!"
+            </div>
+            <div class="testimonial">
+                <img src="https://th.bing.com/th/id/OIP.dBtd58XJhfWUCnCBQWGmmgHaHa?w=512&h=512&rs=1&pid=ImgDetMain" alt="Student 2">
+                "A great learning experience that I would recommend to anyone!"
+            </div>
+            <div class="testimonial">
+                <img src="https://image.freepik.com/free-vector/woman-profile-cartoon_18591-58480.jpg" alt="Student 3">
+                "I gained so much knowledge and confidence!"
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 AI Mentor. All rights reserved.</p>
+        <button class="button" id="scrollToTopBtn">Back to Top</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // Particle.js configuration
+        particlesJS.load('particles-js', 'https://cdn.rawgit.com/VincentGarreau/particles.js/master/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+        // GSAP animations for sections
+        const showCoursesBtn = document.getElementById('showCoursesBtn');
+        const coursesSection = document.getElementById('courses');
+        const courseItems = document.querySelectorAll('.course');
+        const testimonials = document.querySelectorAll('.testimonial');
+
+        // Show courses on button click
+        showCoursesBtn.addEventListener('click', () => {
+            gsap.to(coursesSection, { duration: 0.5, display: "block", opacity: 1 });
+            gsap.to(courseItems, { duration: 0.5, opacity: 1, y: -20, stagger: 0.2 });
+        });
+
+        // Reveal sections on scroll
+        const sections = document.querySelectorAll('section');
+        const revealSection = (entry) => {
+            gsap.to(entry.target, { duration: 1, opacity: 1, y: -20 });
+            observer.unobserve(entry.target);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revealSection(entry);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Scroll to top functionality
+        document.getElementById('scrollToTopBtn').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
